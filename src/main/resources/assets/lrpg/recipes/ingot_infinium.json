@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "I"     
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "lrpg:block_infinium"
+        }
+    },
+    
+    "result":
+    {
+        "item": "lrpg:ingot_refined_infinium",
+        "count": 9
+    }
+}

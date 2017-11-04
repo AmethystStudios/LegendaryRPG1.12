@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "I I",
+        "III",
+        "III"      
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "lrpg:ingot_refined_infinium"
+        }
+    },
+    
+    "result":
+    {
+        "item": "lrpg:chestplate_infinium",
+        "count": 1
+    }
+}

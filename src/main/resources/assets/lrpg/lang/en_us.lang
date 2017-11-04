@@ -1,0 +1,20 @@
+
+
+item.ingot_unrefined_infinium.name=Unrefined Infinium Ingot
+item.ingot_refined_infinium.name=Refined Infinum Ingot
+item.nugget_infinium.name=Infinium Nugget
+item.helmet_infinium.name=Infinium Helmet
+item.chestplate_infinium.name=Infinium Chestplate
+item.leggings_infinium.name=Infinium Leggings
+item.boots_infinium.name=Infinium Boots
+item.pickaxe_infinium.name=Infinium Pickaxe
+item.axe_infinium.name=Infinium Axe
+item.shovel_infinium.name=Infinium Shovel
+item.hoe_infinium.name=Infinium Hoe
+item.sword_infinium.name=Infinium Sword
+
+tile.block_infinium.name=Refined Infinium Block
+tile.block_ore_infinium.name=Infinium Ore
+
+
+itemGroup.lrpgmaintab=Legendary RPG

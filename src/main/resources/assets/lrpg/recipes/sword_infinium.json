@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        " I ",
+        " I ",
+        " S "      
+    ],
+    
+    "key":
+    {
+        "I":
+        {
+            "item": "lrpg:ingot_refined_infinium"
+        },
+        
+        "S":
+        {
+            "item": "minecraft:stick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "lrpg:sword_infinium",
+        "count": 1
+    }
+}
