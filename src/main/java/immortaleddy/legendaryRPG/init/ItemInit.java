@@ -33,6 +33,9 @@ public class ItemInit {
 	public static final Item INGOT_UNREFINED_INFINIUM = new ItemBase("ingot_unrefined_infinium");
 	public static final Item INGOT_REFINED_INFINIUM = new ItemBase("ingot_refined_infinium").setCreativeTab(CreativeTabs.BREWING);
 	public static final Item NUGGET_INFINIUM = new ItemBase("nugget_infinium");
+	public static final Item ITEM_RENNET = new ItemBase("item_rennet");
+	public static final Item ITEM_BLAZE_HEART = new ItemBase("item_blaze_heart");
+	public static final Item ITEM_CREEPER_BRAIN = new ItemBase("item_creeper_brain");
 	
 	//Tools
 	public static final Item PICKAXE_INFINIUM = new ToolPickaxe("pickaxe_infinium", TOOL_INFINIUM);
