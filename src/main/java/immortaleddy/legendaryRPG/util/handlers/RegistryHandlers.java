@@ -4,7 +4,6 @@ import immortaleddy.legendaryRPG.init.BiomeInit;
 import immortaleddy.legendaryRPG.init.BlockInit;
 import immortaleddy.legendaryRPG.init.ItemInit;
 import immortaleddy.legendaryRPG.util.interfaces.IHasModel;
-import immortaleddy.legendaryRPG.world.gen.FlameWorldGen;
 import immortaleddy.legendaryRPG.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -51,7 +50,7 @@ public class RegistryHandlers {
 	
 	public static void otherRegistries(){
 		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
-		GameRegistry.registerWorldGenerator(new FlameWorldGen(), 0);
+
 		
 		BiomeInit.registerBiomes();
 		

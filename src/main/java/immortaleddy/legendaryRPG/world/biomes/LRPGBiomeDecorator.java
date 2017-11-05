@@ -46,8 +46,8 @@ public class LRPGBiomeDecorator extends BiomeDecorator {
 			int numFlames = minFlamePerChunk + randGen.nextInt(maxFlamePerChunk - minFlamePerChunk);
 			// Generate Flames
 			for (int i = 0; i < numFlames; i++) {
-				// get a random position in the chunk
-				System.out.println("Tried to generate a flame");
+				//Get a random position in the chunk
+				//System.out.println("Tried to generate a flame");
 				int randX = chunkPos.getX() + randGen.nextInt(16) + 8;
 				int randZ = chunkPos.getZ() + randGen.nextInt(16) + 8;
 				
