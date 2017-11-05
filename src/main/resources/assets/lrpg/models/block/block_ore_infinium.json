@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "lrpg:blocks/test"
+        "all": "lrpg:blocks/ore_infinium_2"
     }
 }

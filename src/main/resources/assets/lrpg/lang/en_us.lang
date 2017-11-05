@@ -12,6 +12,9 @@ item.axe_infinium.name=Infinium Axe
 item.shovel_infinium.name=Infinium Shovel
 item.hoe_infinium.name=Infinium Hoe
 item.sword_infinium.name=Infinium Sword
+item.item_rennet.name=Rennet
+item.item_creeper_brain.name=Creeper Brain
+item.item_blaze_heart.name=Blaze Heart
 
 tile.block_infinium.name=Refined Infinium Block
 tile.block_ore_infinium.name=Infinium Ore
