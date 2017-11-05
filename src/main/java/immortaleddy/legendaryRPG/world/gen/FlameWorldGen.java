@@ -39,11 +39,10 @@ public class FlameWorldGen implements IWorldGenerator {
 		boolean foundGround = false;
 		while (!foundGround && y-- >= 0) {
 			Block blockAt = world.getBlockState(new BlockPos(x, y, z)).getBlock();
-			// "ground" for our bush is grass or dirt
+
 			foundGround = blockAt == Blocks.NETHERRACK;
 		}
 		return y;
-
 	}
 
 	private void generateOverworld(World world, Random rand, int blockX, int blockZ) {
@@ -51,7 +50,7 @@ public class FlameWorldGen implements IWorldGenerator {
 		int y = getGroundFromAbove(world, blockX, blockZ);
 		Biome biome = world.getBiome(new BlockPos(blockX, y, blockZ));
 
-		if (biome instanceof BiomeHellOnEarth) {
+	/*	if (biome instanceof BiomeHellOnEarth) {
 			// how many we want to make per chunk
 			// let's make it random between MIN and MAX
 			int MIN = 10;
@@ -64,10 +63,10 @@ public class FlameWorldGen implements IWorldGenerator {
 				int randZ = blockZ + rand.nextInt(16);
 				// the y-value we pass here will be used as minimum spawn height (in our
 				// generator, anyway)
-				genFlames.generate(world, rand, new BlockPos(randX, y+1, randZ));
+				genFlames.generate(world, rand, new BlockPos(randX, y + 1, randZ));
 			}
 		}
-
+*/
 	}
 
 }
