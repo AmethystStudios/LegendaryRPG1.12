@@ -40,11 +40,7 @@ public class Main
 	public static void init(FMLInitializationEvent event) 
 	{
 		
-		for (int i1 = 1; i1 < 15; ++i1) {
-			int HowMany = 0;
-			HowMany++;
-			System.out.println(HowMany);
-		}
+
 		
 		
 	}	

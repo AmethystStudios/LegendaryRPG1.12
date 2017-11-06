@@ -83,11 +83,11 @@ public class WorldGenPools extends WorldGenerator {
 							double d9 = d6 * d6 + d7 * d7 + d8 * d8; //Test Case Result: d9 3.101320301783265
 							
 							// This means that in this case, this if statement never happens
-							// If it did, pretending that l = 1, i1 = 2, and j1 =1
+							// If it did, pretending that l = 3, i1 = 2, and j1 =1
 							if (d9 < 1.0D) {
 								
 								aboolean[(l * 16 + i1) * 8 + j1] = true;
-								//then the array inside would end up looking like this
+								//then the array inside would end up looking like this aboolean[401] = true;
 							}
 						}
 					}
