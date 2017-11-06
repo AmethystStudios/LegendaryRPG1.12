@@ -8,7 +8,6 @@ public class LRPGMainTab extends CreativeTabs{
 	
 	public LRPGMainTab(String label) { 
 	super("lrpgmaintab");
-	//this.setBackgroundImageName("lrpgmaintab.png");	
 	
 	}
 

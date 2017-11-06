@@ -13,8 +13,5 @@ public class BlockInit {
 	
 	public static final Block BLOCK_INFINIUM = new BlockBase("block_infinium", Material.IRON);
 
-	//public static final Block ORE_END = new BlockOres("ore_end", "end");
-	//public static final Block ORE_NETHER = new BlockOres("ore_nether", "nether");
-	//public static final Block ORE_OVERWORLD = new BlockOres("ore_overworld", "overworld");
 	public static final Block ORE_INFINIUM = new BlockOreInfinium("block_ore_infinium");
 }

@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class Main 
 	{
 	
+	// Creative Tab Init
 	public static final CreativeTabs lrpgmaintab = new LRPGMainTab("lrpgmaintab");
 	
 	@Instance

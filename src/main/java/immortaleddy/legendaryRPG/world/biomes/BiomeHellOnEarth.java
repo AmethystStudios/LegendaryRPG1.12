@@ -1,7 +1,6 @@
 package immortaleddy.legendaryRPG.world.biomes;
 
 import immortaleddy.legendaryRPG.init.BlockInit;
-import immortaleddy.legendaryRPG.world.gen.WorldGenFlame;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.entity.monster.EntityPigZombie;
@@ -11,13 +10,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class BiomeHellOnEarth extends Biome {
-	// NOTE TO SELF
-
-	// INVESTIGATE BIOMEDECORATORS
-
 	/*
 	 * Remove rivers and other biomes from interfering with HellOnEarth, remove
 	 * water, add more lava generation, add fire generation, tweak mob numbers and
@@ -40,7 +34,9 @@ public class BiomeHellOnEarth extends Biome {
 		getLRPGBiomeDecorator().lavaLakeChance = 0.10f;
 		getLRPGBiomeDecorator().minFlamePerChunk = 10;
 		getLRPGBiomeDecorator().maxFlamePerChunk = 24;
+		getLRPGBiomeDecorator().lavaOceanChance = 1.0f;
 		
+
 		this.spawnableCaveCreatureList.clear();
 		this.spawnableCreatureList.clear();
 		this.spawnableMonsterList.clear();

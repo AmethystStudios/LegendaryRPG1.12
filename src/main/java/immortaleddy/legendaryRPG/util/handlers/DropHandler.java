@@ -6,7 +6,6 @@ import immortaleddy.legendaryRPG.init.ItemInit;
 import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.passive.EntityCow;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

@@ -26,7 +26,6 @@ public class ItemInit {
 	//Materials
 	public static final ToolMaterial TOOL_INFINIUM = EnumHelper.addToolMaterial("tool_infinium", 4, 900000000,
 			8.0f, 5.0f, 35);
-	
 	public static final ArmorMaterial ARMOR_INFINIUM = EnumHelper.addArmorMaterial("armor_infinium", Reference.MODID + ":infinium", 900000000, new int[] { 4, 9, 7, 6 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F);
 
 	//Items

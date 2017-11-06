@@ -14,15 +14,9 @@ public class WorldGenFlame extends WorldGenerator {
 		BlockPos genPos = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4),
 				rand.nextInt(8) - rand.nextInt(8));
 		BlockPos blockUnderPos = genPos.down();
-		// int x = genPos.getX();
-		// int z = genPos.getZ();
 
-		System.out.println("I tried to generate a fire");
 		if (world.isAirBlock(genPos) && (world.getBlockState(blockUnderPos).getBlock() == Blocks.NETHERRACK)) {
 			world.setBlockState(genPos, Blocks.FIRE.getDefaultState());
-			// world.setBlockState(new BlockPos(x,
-			// (world.getTopSolidOrLiquidBlock(pos).getY()+ 1), z),
-			// Blocks.FIRE.getDefaultState());
 		}
 		return false;
 	}
