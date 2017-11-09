@@ -5,6 +5,8 @@ import java.util.List;
 
 import immortaleddy.legendaryRPG.objects.armor.ArmorBase;
 import immortaleddy.legendaryRPG.objects.items.ItemBase;
+import immortaleddy.legendaryRPG.objects.items.ItemBaseFood;
+import immortaleddy.legendaryRPG.objects.items.scrolls.SpellbookTransmute;
 import immortaleddy.legendaryRPG.objects.tools.ToolAxe;
 import immortaleddy.legendaryRPG.objects.tools.ToolHoe;
 import immortaleddy.legendaryRPG.objects.tools.ToolPickaxe;
@@ -17,6 +19,8 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemInit {
@@ -33,8 +37,12 @@ public class ItemInit {
 	public static final Item INGOT_REFINED_INFINIUM = new ItemBase("ingot_refined_infinium").setCreativeTab(CreativeTabs.BREWING);
 	public static final Item NUGGET_INFINIUM = new ItemBase("nugget_infinium");
 	public static final Item ITEM_RENNET = new ItemBase("item_rennet");
-	public static final Item ITEM_BLAZE_HEART = new ItemBase("item_blaze_heart");
+	public static final Item ITEM_BLAZE_HEART = new ItemBaseFood("item_blaze_heart", 4, 4, false, new PotionEffect(Potion.getPotionById(12), 1200, 0)).setAlwaysEdible();
 	public static final Item ITEM_CREEPER_BRAIN = new ItemBase("item_creeper_brain");
+	
+	//Spellbooks and scrolls
+	public static final Item SPELLBOOK_TRANSMUTE = new SpellbookTransmute("spellbook_transmute");
+	
 	
 	//Tools
 	public static final Item PICKAXE_INFINIUM = new ToolPickaxe("pickaxe_infinium", TOOL_INFINIUM);

@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "lrpg:item/shovel_infinium"
+        "layer0": "lrpg:item/spellbook_transmute"
     }
 } 

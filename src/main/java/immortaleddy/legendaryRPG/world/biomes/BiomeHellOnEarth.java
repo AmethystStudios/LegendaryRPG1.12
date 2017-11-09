@@ -31,7 +31,7 @@ public class BiomeHellOnEarth extends Biome {
 		
 		this.decorator.treesPerChunk = 0;
 		this.decorator.generateFalls = false;
-		getLRPGBiomeDecorator().lavaLakeChance = 0.10f;
+		getLRPGBiomeDecorator().lavaLakeChance = 0.75f;
 		getLRPGBiomeDecorator().minFlamePerChunk = 20;
 		getLRPGBiomeDecorator().maxFlamePerChunk = 36;
 		getLRPGBiomeDecorator().lavaOceanChance = 1.0f;

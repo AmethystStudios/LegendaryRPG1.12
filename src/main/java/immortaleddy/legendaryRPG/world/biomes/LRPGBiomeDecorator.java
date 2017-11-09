@@ -3,6 +3,7 @@ package immortaleddy.legendaryRPG.world.biomes;
 import java.util.Random;
 
 import immortaleddy.legendaryRPG.world.gen.WorldGenFlame;
+import immortaleddy.legendaryRPG.world.gen.WorldGenPools;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -16,10 +17,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 public class LRPGBiomeDecorator extends BiomeDecorator {
 
 	// Register generators
-	private WorldGenLakes moreLavaLakeGen = new WorldGenLakes(Blocks.LAVA);
+	//private WorldGenLakes moreLavaLakeGen = new WorldGenLakes(Blocks.LAVA);
+	private WorldGenPools moreLavaLakeGen = new WorldGenPools(Blocks.LAVA);
 	private WorldGenerator flameGen = new WorldGenFlame();
 	private WorldGenerator flameGen2 = new WorldGenFire();
-	private WorldGenerator lava = new WorldGenHellLava(Blocks.NETHERRACK, true);
 
 	// Set default chances for something to trigger
 	public float lavaLakeChance = 0;

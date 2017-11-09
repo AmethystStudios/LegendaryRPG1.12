@@ -1,6 +1,6 @@
 {
-    "parent": "item/generated",
+    "parent": "item/handheld",
     "textures": {
-        "layer0": "lrpg:item/pickaxe_infinium"
+        "layer0": "lrpg:item/pickaxe_infinium_1"
     }
 } 

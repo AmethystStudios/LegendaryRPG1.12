@@ -11,11 +11,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-public class WorldGenPools extends WorldGenerator {
+public class WorldGenPools2 extends WorldGenerator {
 
 	private final Block block;
 
-	public WorldGenPools(Block blockIn) {
+	public WorldGenPools2(Block blockIn) {
 		// The kind of Pool we want to generate (Water or Lava)
 		this.block = blockIn;
 	}
@@ -43,7 +43,7 @@ public class WorldGenPools extends WorldGenerator {
 			position = position.down(4);
 			// Make a new Boolean Array names aboolean. Not sure what a boolean array does.
 			// Possibly just stores 2048 true/falses
-			boolean[] aboolean = new boolean[204800];
+			boolean[] aboolean = new boolean[2048];
 
 			// Get a random number between 0-4, Add 4. This is the number of times the below
 			// for loop will run
@@ -137,7 +137,7 @@ public class WorldGenPools extends WorldGenerator {
 			}
 
 			for (int i2 = 0; i2 < 16; ++i2) {
-				for (int j3 = 0; j3< 16; ++j3) {
+				for (int j3 = 0; j3 < 16; ++j3) {
 					for (int j4 = 4; j4 < 8; ++j4) {
 						if (aboolean[(i2 * 16 + j3) * 8 + j4]) {
 							BlockPos blockpos = position.add(i2, j4 - 1, j3);
@@ -171,7 +171,7 @@ public class WorldGenPools extends WorldGenerator {
 
 							if (flag1 && (k4 < 4 || rand.nextInt(2) != 0)
 									&& worldIn.getBlockState(position.add(j2, k4, k3)).getMaterial().isSolid()) {
-								worldIn.setBlockState(position.add(j2, k4, k3), Blocks.NETHERRACK.getDefaultState(), 2);
+								worldIn.setBlockState(position.add(j2, k4, k3), Blocks.STONE.getDefaultState(), 2);
 							}
 						}
 					}
