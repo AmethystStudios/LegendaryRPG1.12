@@ -30,8 +30,7 @@ public class ItemInit {
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	
 	//Materials
-	public static final ToolMaterial TOOL_INFINIUM = EnumHelper.addToolMaterial("tool_infinium", 4, 900000000,
-			8.0f, 5.0f, 35);
+	public static final ToolMaterial TOOL_INFINIUM = EnumHelper.addToolMaterial("tool_infinium", 4, 900000000, 8.0f, 5.0f, 35);
 	public static final ArmorMaterial ARMOR_INFINIUM = EnumHelper.addArmorMaterial("armor_infinium", Reference.MODID + ":infinium", 900000000, new int[] { 4, 9, 7, 6 }, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F);
 
 	//Items
@@ -47,22 +46,17 @@ public class ItemInit {
 	public static final Item SCROLL_SPAWNPOINT = new ScrollSpawnpoint("scroll_spawnpoint");
 	public static final Item SCROLL_RECALL = new ScrollRecall("scroll_recall");
 	
-	
-	
 	//Tools
 	public static final Item PICKAXE_INFINIUM = new ToolPickaxe("pickaxe_infinium", TOOL_INFINIUM);
 	public static final Item AXE_INFINIUM = new ToolAxe("axe_infinium", TOOL_INFINIUM);
 	public static final Item SHOVEL_INFINIUM = new ToolShovel("shovel_infinium", TOOL_INFINIUM);
 	public static final Item HOE_INFINIUM = new ToolHoe("hoe_infinium", TOOL_INFINIUM);
 	public static final Item SWORD_INFINIUM = new ToolSword("sword_infinium", TOOL_INFINIUM);
+	
 	//Armor
 	public static final Item HELMET_INFINIUM = new ArmorBase("helmet_infinium", ARMOR_INFINIUM, 1, EntityEquipmentSlot.HEAD);
 	public static final Item CHESTPLATE_INFINIUM = new ArmorBase("chestplate_infinium", ARMOR_INFINIUM, 1, EntityEquipmentSlot.CHEST);
 	public static final Item LEGGINGS_INFINIUM = new ArmorBase("leggings_infinium", ARMOR_INFINIUM, 2, EntityEquipmentSlot.LEGS);
 	public static final Item BOOTS_INFINIUM = new ArmorBase("boots_infinium", ARMOR_INFINIUM, 1, EntityEquipmentSlot.FEET);
-	
-	
-	
-
 
 }

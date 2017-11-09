@@ -12,15 +12,15 @@ public class ItemBlockVariants extends ItemBlock {
 		setHasSubtypes(true);
 		setMaxDamage(0);
 	}
-	
+
 	@Override
 	public int getMetadata(int damage) {
 		return damage;
 	}
+
 	@Override
-	public String getUnlocalizedName(ItemStack stack) 
-	{
-		return super.getUnlocalizedName() + "_" + ((IMetaName)this.block).getSpecialName(stack);
+	public String getUnlocalizedName(ItemStack stack) {
+		return super.getUnlocalizedName() + "_" + ((IMetaName) this.block).getSpecialName(stack);
 	}
 
 }

@@ -4,11 +4,11 @@ import immortaleddy.legendaryRPG.init.ItemInit;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
-public class LRPGMainTab extends CreativeTabs{
-	
-	public LRPGMainTab(String label) { 
-	super("lrpgmaintab");
-	
+public class LRPGMainTab extends CreativeTabs {
+
+	public LRPGMainTab(String label) {
+		super("lrpgmaintab");
+
 	}
 
 	@Override

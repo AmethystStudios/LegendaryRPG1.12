@@ -17,7 +17,7 @@ public class BiomeInit {
 
 	}
 
-	// TODO Change weight to realistic number, 
+	// TODO Change weight to realistic number,
 	private static Biome initBiome(Biome biome, String name, BiomeType biomeType, Type... types) {
 		biome.setRegistryName(name);
 		ForgeRegistries.BIOMES.register(biome);
@@ -26,7 +26,7 @@ public class BiomeInit {
 		BiomeManager.addBiome(biomeType, new BiomeEntry(biome, 999999999));
 		BiomeManager.addSpawnBiome(biome);
 		System.out.println("BiomeAdded");
-		
+
 		return biome;
 
 	}

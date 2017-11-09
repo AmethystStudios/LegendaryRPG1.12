@@ -12,18 +12,19 @@ public class ToolHoe extends ItemHoe implements IHasModel {
 		super(material);
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		
+
 		ItemInit.ITEMS.add(this);
 	}
-    @Override
+
+	@Override
 	public CreativeTabs[] getCreativeTabs() {
-	 return new CreativeTabs[] {CreativeTabs.TOOLS, Main.lrpgmaintab};
+		return new CreativeTabs[] { CreativeTabs.TOOLS, Main.lrpgmaintab };
 	}
 
 	@Override
 	public void registerModels() {
 		Main.proxy.registerItemRenderer(this, 0, "inventory");
-		
+
 	}
 
 }

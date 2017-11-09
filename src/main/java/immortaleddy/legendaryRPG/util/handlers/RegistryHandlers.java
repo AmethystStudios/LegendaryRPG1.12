@@ -19,7 +19,7 @@ public class RegistryHandlers {
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event) {
 		event.getRegistry().registerAll(ItemInit.ITEMS.toArray(new Item[0]));
-		
+
 	}
 
 	@SubscribeEvent
@@ -29,31 +29,25 @@ public class RegistryHandlers {
 	}
 
 	@SubscribeEvent
-	public static void onModelRegister(ModelRegistryEvent event)
-	{
-		for(Item item : ItemInit.ITEMS)
-		{
-			if(item instanceof IHasModel)
-			{
-				((IHasModel)item).registerModels();
+	public static void onModelRegister(ModelRegistryEvent event) {
+		for (Item item : ItemInit.ITEMS) {
+			if (item instanceof IHasModel) {
+				((IHasModel) item).registerModels();
 			}
 		}
-		
-		for(Block block : BlockInit.BLOCKS)
-		{
-			if(block instanceof IHasModel)
-			{
-				((IHasModel)block).registerModels();
+
+		for (Block block : BlockInit.BLOCKS) {
+			if (block instanceof IHasModel) {
+				((IHasModel) block).registerModels();
 			}
 		}
 	}
-	
-	public static void otherRegistries(){
+
+	public static void otherRegistries() {
 		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
 
-		
 		BiomeInit.registerBiomes();
-		
+
 	}
 
 }

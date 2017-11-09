@@ -13,14 +13,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemCoal;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -35,8 +31,9 @@ public class SpellbookTransmute extends Item implements IHasModel {
 		setMaxStackSize(1);
 		setMaxDamage(500);
 		ItemInit.ITEMS.add(this);
-		
+
 	}
+
 	// Set the tooltip based on what mode is
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
@@ -66,11 +63,13 @@ public class SpellbookTransmute extends Item implements IHasModel {
 
 		}
 	}
-	
+
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		if (world.isRemote) {
-			// If the player is sneaking, we switch mode to something else, and send the player a chat message to let them know what the new mode is
+			// If the player is sneaking, we switch mode to something else, and
+			// send the player a chat message to let them know what the new mode
+			// is
 			if (player.isSneaking()) {
 				switch (mode) {
 				case 0:
@@ -100,8 +99,9 @@ public class SpellbookTransmute extends Item implements IHasModel {
 					player.sendMessage(new TextComponentString("Switched to spell: \u00A78Coal \u00A7r-> \u00A77Iron"));
 					break;
 				}
-			} 
-			// If the player isn't sneaking, we are going to transmute one thing into another based on what mode is
+			}
+			// If the player isn't sneaking, we are going to transmute one thing
+			// into another based on what mode is
 			else if (!player.isSneaking()) {
 				switch (mode) {
 				case 0:
@@ -117,7 +117,7 @@ public class SpellbookTransmute extends Item implements IHasModel {
 					transmuteItems(player, hand, 4, 1, 18, Items.GOLD_INGOT, Items.DIAMOND);
 					break;
 				case 3:
-					// Diamond -> Gold 
+					// Diamond -> Gold
 					transmuteItems(player, hand, 1, 4, 4, Items.DIAMOND, Items.GOLD_INGOT);
 					break;
 				case 4:
@@ -134,14 +134,26 @@ public class SpellbookTransmute extends Item implements IHasModel {
 
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
 	}
-	// This is the method that does the actual item trade
+
+	/**
+	 * This is the method that does the actual item trade
+	 * 
+	 * @param player
+	 * @param hand
+	 * @param howManyIn
+	 * @param howManyOut
+	 * @param durabilityCost
+	 * @param itemToConsume
+	 * @param itemToReturn
+	 */
 	public static void transmuteItems(EntityPlayer player, EnumHand hand, int howManyIn, int howManyOut,
 			int durabilityCost, Item itemToConsume, Item itemToReturn) {
-		// Count how many of the target item the player has in his or her inventory
+		// Count how many of the target item the player has in his or her
+		// inventory
 		int count = countItem(player.inventory, itemToConsume);
 		// If the have enough of the target item
 		if (count >= howManyIn) {
-			//trade it for the other item
+			// trade it for the other item
 			consumeItem(player.inventory, itemToConsume, howManyIn);
 			player.getHeldItem(hand).damageItem(durabilityCost, player);
 			ItemStack stack = new ItemStack(itemToReturn, howManyOut);
@@ -155,31 +167,49 @@ public class SpellbookTransmute extends Item implements IHasModel {
 
 	}
 
-	// Counts all of the target item in the player's inventory
-	public static int countItem(InventoryPlayer inventory, Item itemtocount) {
-		ItemStack returnstack = null;
-		int itemCount = 0;
-		for (ItemStack s : inventory.mainInventory) {
-			if (s != null && s.getItem() == itemtocount) {
-				itemCount = itemCount + s.getCount();
+	/**
+	 * Counts all of the target item in the player's inventory
+	 * 
+	 * @param inventory
+	 * @param itemtocount
+	 * @return
+	 */
+	public static int countItem(InventoryPlayer inventory, Item itemToCount) {
+		int count = 0;
+		for(ItemStack stack : inventory.mainInventory) {
+			if(stack != null && stack.getItem() == itemToCount) {
+				count += stack.getCount();
 			}
 		}
-		return itemCount;
+		return count;
 	}
-	// Remove the specified amount of the target
+
+	/**
+	 * Remove the specified amount of the target
+	 * 
+	 * @param inventory
+	 * @param itemToConsume
+	 * @param howMany
+	 */
 	public static void consumeItem(InventoryPlayer inventory, Item itemToConsume, int howMany) {
 		inventory.clearMatchingItems(itemToConsume, 0, howMany, null);
 	}
+
 	@Override
-    public boolean isEnchantable(ItemStack stack)
-    {
-        return false;
-    }
-	@Override // This is here to prevent people from enchanting the spellbook. Unbreaking has issues with balance.
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book)
-    {
-        return false;
-    }
+	public boolean isEnchantable(ItemStack stack) {
+		return false;
+	}
+
+	/**
+	 * This is here to prevent people from enchanting the spellbook.
+	 * Unbreaking has issues with balance.
+	 * 
+	 * @Override
+	 */
+	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+		return false;
+	}
+
 	@Override
 	public CreativeTabs[] getCreativeTabs() {
 		return new CreativeTabs[] { CreativeTabs.TOOLS, Main.lrpgmaintab };

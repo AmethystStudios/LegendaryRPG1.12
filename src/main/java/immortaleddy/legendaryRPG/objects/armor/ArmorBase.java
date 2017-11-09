@@ -16,13 +16,15 @@ public class ArmorBase extends ItemArmor implements IHasModel {
 
 		ItemInit.ITEMS.add(this);
 	}
-    @Override
+
+	@Override
 	public CreativeTabs[] getCreativeTabs() {
-	 return new CreativeTabs[] {CreativeTabs.COMBAT, Main.lrpgmaintab};
+		return new CreativeTabs[] { CreativeTabs.COMBAT, Main.lrpgmaintab };
 	}
+
 	@Override
 	public void registerModels() {
 		Main.proxy.registerItemRenderer(this, 0, "inventory");
-		
+
 	}
 }

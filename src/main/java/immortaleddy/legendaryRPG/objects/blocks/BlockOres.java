@@ -24,7 +24,6 @@ import net.minecraft.world.World;
 
 public class BlockOres extends Block implements IHasModel, IMetaName {
 
-
 	private String name, dimension;
 	public static final PropertyEnum<EnumHandler.EnumType> VARIANT = PropertyEnum.<EnumHandler.EnumType>create(
 			"variant", EnumHandler.EnumType.class);
@@ -34,8 +33,8 @@ public class BlockOres extends Block implements IHasModel, IMetaName {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-		setDefaultState((this.blockState.getBaseState().withProperty(VARIANT, EnumHandler.EnumType.infinium)));
-		this.setHarvestLevel("shovel", 3, this.getDefaultState().withProperty(VARIANT, EnumHandler.EnumType.infinium));
+		setDefaultState((this.blockState.getBaseState().withProperty(VARIANT, EnumHandler.EnumType.INFINIUM)));
+		this.setHarvestLevel("shovel", 3, this.getDefaultState().withProperty(VARIANT, EnumHandler.EnumType.INFINIUM));
 
 		this.name = name;
 		this.dimension = dimension;
