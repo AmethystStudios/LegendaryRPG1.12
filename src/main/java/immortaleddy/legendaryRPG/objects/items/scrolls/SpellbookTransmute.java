@@ -35,27 +35,36 @@ public class SpellbookTransmute extends Item implements IHasModel {
 		setMaxStackSize(1);
 		setMaxDamage(500);
 		ItemInit.ITEMS.add(this);
+		
 	}
-	
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn)
-    {
-    	int DamagetoShow = this.getMaxDamage(stack) - this.getDamage(stack);
-    	tooltip.add("\u00A72SHIFT + RIGHTCLICK TO CHANGE MODE");
-    	tooltip.add("Durability: " + DamagetoShow + "/" + this.getMaxDamage(stack));
-    	switch (mode){
-    	case 0:
-    		tooltip.add("Mode: \u00A78Coal \u00A7r-> \u00A77Iron");
-    		break;
-    	case 1:
-    		tooltip.add("Mode: \u00A77Iron \u00A7r-> \u00A7eGold");
-    		break;
-    	case 2:
-    		tooltip.add("Mode: \u00A7eGold \u00A7r-> \u00A7bDiamond");
-    		break;
-    		
-    	}
-    }
+
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		int DamagetoShow = this.getMaxDamage(stack) - this.getDamage(stack);
+		tooltip.add("\u00A72SHIFT + RIGHTCLICK TO CHANGE MODE");
+		tooltip.add("Durability: " + DamagetoShow + "/" + this.getMaxDamage(stack));
+		switch (mode) {
+		case 0:
+			tooltip.add("Spell: \u00A78Coal \u00A7r-> \u00A77Iron");
+			break;
+		case 1:
+			tooltip.add("Spell: \u00A77Iron \u00A7r-> \u00A7eGold");
+			break;
+		case 2:
+			tooltip.add("Spell: \u00A7eGold \u00A7r-> \u00A7bDiamond");
+			break;
+		case 3:
+			tooltip.add("Spell: \u00A7bDiamond \u00A7r-> \u00A7eGold");
+			break;
+		case 4:
+			tooltip.add("Spell: \u00A7eGold \u00A7r-> \u00A77Iron");
+			break;
+		case 5:
+			tooltip.add("Spell: \u00A77Iron \u00A7r-> \u00A78Coal");
+			break;
+
+		}
+	}
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
@@ -63,78 +72,74 @@ public class SpellbookTransmute extends Item implements IHasModel {
 			if (player.isSneaking()) {
 				switch (mode) {
 				case 0:
-					player.sendMessage(new TextComponentString(
-							"Switched to Mode: \u00A77Iron \u00A7r-> \u00A7eGold"));
 					mode = 1;
+					player.sendMessage(new TextComponentString("Switched to spell: \u00A77Iron \u00A7r-> \u00A7eGold"));
 					break;
 				case 1:
-					player.sendMessage(new TextComponentString(
-							"Switched to Mode: \u00A7eGold \u00A7r-> \u00A7bDiamond"));
 					mode = 2;
+					player.sendMessage(
+							new TextComponentString("Switched to spell: \u00A7eGold \u00A7r-> \u00A7bDiamond"));
 					break;
 				case 2:
+					mode = 3;
+					player.sendMessage(
+							new TextComponentString("Switched to spell: \u00A7bDiamond \u00A7r-> \u00A7eGold"));
+					break;
+				case 3:
+					player.sendMessage(new TextComponentString("Switched to spell: \u00A7eGold \u00A7r-> \u00A77Iron"));
+					mode = 4;
+					break;
+				case 4:
+					player.sendMessage(new TextComponentString("Switched to spell: \u00A77Iron \u00A7r-> \u00A78Coal"));
+					mode = 5;
+					break;
+				case 5:
 					mode = 0;
-					player.sendMessage(new TextComponentString(
-							"Switched to Mode: \u00A78Coal \u00A7r-> \u00A77Iron"));
+					player.sendMessage(new TextComponentString("Switched to spell: \u00A78Coal \u00A7r-> \u00A77Iron"));
 					break;
 				}
 			} else if (!player.isSneaking()) {
 				switch (mode) {
 				case 0:
-					int countCoal = countItem(player.inventory, Items.COAL);
-					int howManyCoal = 2;
-					if (countCoal >= howManyCoal) {
-						consumeItem(player.inventory, Items.COAL, howManyCoal);
-						player.sendMessage(new TextComponentString(
-								"With a puff of smoke, you transmute " + howManyCoal + " coal into 1 Iron!"));
-						player.getHeldItem(hand).damageItem(7, player);
-						ItemStack stack = new ItemStack(Items.IRON_INGOT, 2);
-						if (!player.inventory.addItemStackToInventory(stack)) {
-							player.dropItem(stack, false);
-						}
-					} else if (howManyCoal > countCoal) {
-						player.sendMessage(new TextComponentString("Not enough coal! You need " + howManyCoal + "!"));
-
-					}
+					transmuteItems(player, hand, 4, 1, 7, Items.COAL, Items.IRON_INGOT);
 					break;
 				case 1:
-					int countIron = countItem(player.inventory, Items.IRON_INGOT);
-					int howManyIron = 2;
-					if (countIron >= howManyIron) {
-						consumeItem(player.inventory, Items.IRON_INGOT, howManyIron);
-						player.sendMessage(new TextComponentString(
-								"With a puff of smoke, you transmute " + howManyIron + " iron into 1 Gold!"));
-						player.getHeldItem(hand).damageItem(5, player);
-						ItemStack stack = new ItemStack(Items.GOLD_INGOT, 1);
-						if (!player.inventory.addItemStackToInventory(stack)) {
-							player.dropItem(stack, false);
-						}
-					} else if (howManyIron > countIron) {
-						player.sendMessage(new TextComponentString("Not enough iron! You need " + howManyIron + "!"));
-
-					}
+					transmuteItems(player, hand, 2, 1, 5, Items.IRON_INGOT, Items.GOLD_INGOT);
 					break;
 				case 2:
-					int countGold = countItem(player.inventory, Items.GOLD_INGOT);
-					int howManyGold = 4;
-					if (countGold >= howManyGold) {
-						consumeItem(player.inventory, Items.GOLD_INGOT, howManyGold);
-						player.sendMessage(new TextComponentString(
-								"With a puff of smoke, you transmute " + howManyGold + " gold into a diamond!"));
-						player.getHeldItem(hand).damageItem(18, player);
-						ItemStack stack = new ItemStack(Items.DIAMOND, 1);
-						if (!player.inventory.addItemStackToInventory(stack)) {
-							player.dropItem(stack, false);
-						}
-					} else if (howManyGold > countGold) {
-						player.sendMessage(new TextComponentString("Not enough gold! You need " + howManyGold + "!"));
-					}
+					transmuteItems(player, hand, 4, 1, 18, Items.GOLD_INGOT, Items.DIAMOND);
+					break;
+				case 3:
+					transmuteItems(player, hand, 1, 4, 4, Items.DIAMOND, Items.GOLD_INGOT);
+					break;
+				case 4:
+					transmuteItems(player, hand, 1, 2, 8, Items.GOLD_INGOT, Items.IRON_INGOT);
+					break;
+				case 5:
+					transmuteItems(player, hand, 1, 4, 5, Items.IRON_INGOT, Items.COAL);
 					break;
 				}
 			}
 		}
 
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, player.getHeldItem(hand));
+	}
+
+	public static void transmuteItems(EntityPlayer player, EnumHand hand, int howManyIn, int howManyOut,
+			int durabilityCost, Item itemToConsume, Item itemToReturn) {
+		int count = countItem(player.inventory, itemToConsume);
+		if (count >= howManyIn) {
+			consumeItem(player.inventory, itemToConsume, howManyIn);
+			player.getHeldItem(hand).damageItem(durabilityCost, player);
+			ItemStack stack = new ItemStack(itemToReturn, howManyOut);
+			if (!player.inventory.addItemStackToInventory(stack)) {
+				player.dropItem(stack, false);
+			}
+		} else if (howManyIn > count) {
+			player.sendMessage(new TextComponentString("Not enough coal! You need " + howManyIn));
+
+		}
+
 	}
 
 	public static int countItem(InventoryPlayer inventory, Item itemtocount) {
@@ -151,7 +156,15 @@ public class SpellbookTransmute extends Item implements IHasModel {
 	public static void consumeItem(InventoryPlayer inventory, Item itemToConsume, int howMany) {
 		inventory.clearMatchingItems(itemToConsume, 0, howMany, null);
 	}
-
+	@Override
+    public boolean isEnchantable(ItemStack stack)
+    {
+        return false;
+    }
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book)
+    {
+        return false;
+    }
 	@Override
 	public CreativeTabs[] getCreativeTabs() {
 		return new CreativeTabs[] { CreativeTabs.COMBAT, Main.lrpgmaintab };
@@ -164,3 +177,4 @@ public class SpellbookTransmute extends Item implements IHasModel {
 	}
 
 }
+// 241
