@@ -1,0 +1,7 @@
+{
+    "item.scroll_recall.teleport": {
+        "category": "neutral",
+        "subtitle": "item.scroll_recall.teleport",
+        "sounds": [ { "name": "lrpg:item/scroll_recall/teleport", "stream": true } ]
+    }
+}

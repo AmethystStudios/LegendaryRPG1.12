@@ -4,6 +4,7 @@ import immortaleddy.legendaryRPG.proxy.CommonProxy;
 import immortaleddy.legendaryRPG.tabs.LRPGMainTab;
 import immortaleddy.legendaryRPG.util.Reference;
 import immortaleddy.legendaryRPG.util.handlers.DropHandler;
+import immortaleddy.legendaryRPG.util.handlers.LRPGSoundHandler;
 import immortaleddy.legendaryRPG.util.handlers.RegistryHandlers;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
@@ -33,6 +34,7 @@ public class Main
 	{
 		RegistryHandlers.otherRegistries();
 		MinecraftForge.EVENT_BUS.register(new DropHandler());
+
 		
 	}	
 	
