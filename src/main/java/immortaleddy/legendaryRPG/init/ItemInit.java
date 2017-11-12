@@ -6,6 +6,7 @@ import java.util.List;
 import immortaleddy.legendaryRPG.objects.armor.ArmorBase;
 import immortaleddy.legendaryRPG.objects.items.ItemBase;
 import immortaleddy.legendaryRPG.objects.items.ItemBaseFood;
+import immortaleddy.legendaryRPG.objects.items.scrolls.ScrollIron;
 import immortaleddy.legendaryRPG.objects.items.scrolls.ScrollRecall;
 import immortaleddy.legendaryRPG.objects.items.scrolls.ScrollSpawnpoint;
 import immortaleddy.legendaryRPG.objects.items.scrolls.SpellbookTransmute;
@@ -45,6 +46,10 @@ public class ItemInit {
 	public static final Item SPELLBOOK_TRANSMUTE = new SpellbookTransmute("spellbook_transmute");
 	public static final Item SCROLL_SPAWNPOINT = new ScrollSpawnpoint("scroll_spawnpoint");
 	public static final Item SCROLL_RECALL = new ScrollRecall("scroll_recall");
+	
+	public static final Item SCROLL_IRON_TIER_1 = new ScrollIron("scroll_iron_tier_1", 1);
+	public static final Item SCROLL_IRON_TIER_2 = new ScrollIron("scroll_iron_tier_2", 2);
+	public static final Item SCROLL_IRON_TIER_3 = new ScrollIron("scroll_iron_tier_3", 3);
 	
 	//Tools
 	public static final Item PICKAXE_INFINIUM = new ToolPickaxe("pickaxe_infinium", TOOL_INFINIUM);

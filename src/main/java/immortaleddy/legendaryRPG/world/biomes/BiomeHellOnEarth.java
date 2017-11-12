@@ -34,8 +34,8 @@ public class BiomeHellOnEarth extends Biome {
 		getLRPGBiomeDecorator().lavaLakeChance = 0.75f;
 		getLRPGBiomeDecorator().minFlamePerChunk = 20;
 		getLRPGBiomeDecorator().maxFlamePerChunk = 36;
-		getLRPGBiomeDecorator().lavaOceanChance = 1.0f;
-		
+		getLRPGBiomeDecorator().soulSandPatchChance = 0.9f;
+		getLRPGBiomeDecorator().soulSandPatchSize = 17;
 
 		this.spawnableCaveCreatureList.clear();
 		this.spawnableCreatureList.clear();
